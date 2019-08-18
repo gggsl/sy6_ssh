@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.example">
+    <class name="com.example.entity.Picture" table="picture">
+        <id name="id">
+            <generator class="identity"></generator>
+        </id>
+        <property name="name" column="name"></property>
+        <property name="fname" column="fname"></property>
+        <property name="intro" column="intro"></property>
+        <property name="tags" column="tags"></property>
+        <property name="upload_time" column="upload_time"></property>
+        <property name="click_num" column="click_num"></property>
+        <property name="userpicture" column="userpicture"/>
+
+
+
+        <many-to-one name="user" class="com.example.entity.User" cascade="all">
+            <column name="user_id" not-null="true"></column>
+        </many-to-one>
+    </class>
+
+</hibernate-mapping>
